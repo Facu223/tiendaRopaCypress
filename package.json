@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run"
   },
   "author": "Facundo Garcia",
   "license": "ISC",
   "dependencies": {
     "cypress": "^9.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Facu223/tiendaRopaCypress"
   }
 }
