@@ -1,25 +1,23 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add("search", (element) => {
+  cy.fixture("index.json").then((locator) => {
+    cy.get(locator.searchBox).type(element);
+    cy.get(locator.searchButton).click();
+    cy.get(locator.searchBox).clear();
+  });
+
+  cy.fixture("searchResult.json").then((locator) => {
+    cy.get(locator.title).should("contain", element);
+  });
+});
+
+Cypress.Commands.add("noResult", (element) => {
+  cy.fixture("index.json").then((locator) => {
+    cy.get(locator.searchBox).type(element);
+    cy.get(locator.searchButton).click();
+    cy.get(locator.searchBox).clear();
+  });
+
+  cy.fixture("searchResult.json").then((locator) => {
+    cy.get(locator.alert).should("contain", element);
+  });
+});
