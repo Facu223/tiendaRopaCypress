@@ -1,0 +1,7 @@
+{
+    "loginButton" : ".login",
+    "email" : "#email",
+    "password" : "#passwd",
+    "submitButton" : "#SubmitLogin > span",
+    "result" : "#center_column > :nth-child(2)"
+}

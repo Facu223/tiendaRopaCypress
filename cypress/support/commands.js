@@ -21,3 +21,5 @@ Cypress.Commands.add("noResult", (element) => {
     cy.get(locator.alert).should("contain", element);
   });
 });
+
+
